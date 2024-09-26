@@ -66,6 +66,8 @@ button:hover {
 #tray,
 #network,
 #mode,
+#waybar-media,
+#spotify,
 #scratchpad {
   margin-top: 2px;
   margin-bottom: 2px;
