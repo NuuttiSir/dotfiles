@@ -8,9 +8,11 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
-		opts = {
-			auto_install = true,
-		},
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "clangd", "jdtls", "jedi_language_server", "gopls"}
+			})
+		end
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -24,9 +26,15 @@ return {
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.jdtls.setup({
-        capabilities = capabilities
-      })
+      		lspconfig.jdtls.setup({
+        		capabilities = capabilities
+      		})
+			lspconfig.jedi_language_server.setup({
+				capabilities = capabilities
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities
+			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
