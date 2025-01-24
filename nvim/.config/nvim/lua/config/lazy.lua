@@ -19,6 +19,18 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
+	{ --Theme
+		"navarasu/onedark.nvim",
+		priority = 1000,
+		config = function()
+			require("onedark").setup({
+				style = "darker",
+				transparent = true,
+			})
+			require("onedark").load()
+		end,
+	},
+
 	--  Uncomment the following line and add your plugins to `lua/plugins/*.lua` to get going.
 	{ import = "plugins" },
 
